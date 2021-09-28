@@ -41,15 +41,40 @@ export default function Home() {
   }, [changeInputQueue])
 
   return (
-    <div className={styles.container}>
+    <div className="face">
       <Head>
         <title>Ranieri</title>
         <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta names="apple-mobile-web-app-status-bar-style" content="black-translucent" />
       </Head>
-      <input placeholder="0 ₽" ref={inputPrice} className="price sum" type="text"/>
-      <input ref={inputDescr} className="price descr"/>
+      <div className="form">
+        <input placeholder="0 ₽" ref={inputPrice} className="price sum" type="text"/>
+        <input ref={inputDescr} className="price descr"/>
+
+        <div className="users">
+          <div className="users__line">
+            <div className="users__profile selected">
+              <div className="users__avatar"/>
+              <div className="users__name">Я</div>
+            </div>
+            <div className="users__profile">
+              <div className="users__avatar"/>
+              <div className="users__name">Андрей</div>
+            </div>
+            <div className="users__profile">
+              <div className="users__avatar"/>
+              <div className="users__name">Антон</div>
+            </div>
+            <div className="users__profile">
+              <div className="users__avatar"/>
+              <div className="users__name">Анфиса</div>
+            </div>
+          </div>
+        </div>
+
+        <div className="form__btn">Добавить</div>
+      </div>
     </div>
   )
 }
