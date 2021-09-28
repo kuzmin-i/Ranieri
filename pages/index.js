@@ -48,7 +48,7 @@ export default function Home() {
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta names="apple-mobile-web-app-status-bar-style" content="black-translucent" />
       </Head>
-      <input autoFocus ref={inputPrice} className="price sum" type="text"/>
+      <input ref={inputPrice} className="price sum" type="text"/>
       <textarea ref={inputDescr} className="price descr"></textarea>
     </div>
   )
