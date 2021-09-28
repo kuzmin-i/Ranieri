@@ -44,6 +44,16 @@ a {
   width: 100%
 }
 
+.price:focus {
+  border: 0px solid black;
+  outline-width: 0;
+}
+
+.price:focus-visible {
+  border: 0px solid black;
+  outline-width: 0;
+}
+
 .price.sum {
   font-size: 82px;
 }

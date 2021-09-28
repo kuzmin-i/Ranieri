@@ -58,11 +58,19 @@ export default function Home() {
     setInputQueue('inputDescr')
   }
 
+  const makeDescrFocusOut = (e) => {
+    if(e.key === 'Enter') {
+      inputDescr.current.blur()
+    }
+  }
+
   useEffect(()=> {
     /*window.addEventListener('keypress', changeInputQueue)*/
     inputPrice.current.addEventListener('focus', makeFocus)
     inputPrice.current.addEventListener('focusout', makeFocusOut)
     inputPrice.current.addEventListener('keydown', priceSumKeypress)
+
+    inputDescr.current.addEventListener('keydown', makeDescrFocusOut)
 
     return () => {
       /*window.removeEventListener('keypress', changeInputQueue)*/
@@ -70,9 +78,11 @@ export default function Home() {
       inputPrice.current.removeEventListener('focusout', makeFocusOut)
       inputPrice.current.removeEventListener('keydown', priceSumKeypress)
 
+      inputDescr.current.removeEventListener('keydown', makeDescrFocusOut)
+
     }
 
-  }, [makeFocus, makeFocusOut, priceSumKeypress])
+  }, [makeFocus, makeFocusOut, priceSumKeypress, makeDescrFocusOut])
 
   return (
     <div className="face">
