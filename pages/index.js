@@ -33,6 +33,7 @@ export default function Home() {
 
   useEffect(()=> {
     window.addEventListener('keypress', changeInputQueue)
+    inputPrice.current.focus()
     return () => {
       window.removeEventListener('keypress', changeInputQueue)
     }
