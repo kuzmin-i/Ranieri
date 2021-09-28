@@ -84,6 +84,49 @@ export default function Home() {
 
   }, [makeFocus, makeFocusOut, priceSumKeypress, makeDescrFocusOut])
 
+  /* Set Users List */
+  const users = {
+    'me': {
+      name: 'Я',
+      avatar: ''
+    },
+    'yurii': {
+      name: 'Юрец',
+      avatar: ''
+    },
+    'kristina': {
+      name: 'Кристина',
+      avatar: ''
+    },
+    'daniil': {
+      name: 'Даня',
+      avatar: ''
+    }
+  }
+
+  const [usersList, setUsersList] = useState([true, false, false, false])
+
+  const touchUser = (m) => {
+    let _usersList = [...usersList]
+    _usersList[m] = !usersList[m]
+
+    setUsersList(_usersList)
+  }
+
+  let usersArr = Object.keys(users).map((key, m) => {
+    let selected = ''
+    if(usersList[m]) selected += ' selected'
+
+    return (
+      <div className={"users__profile" + selected} onClick={() => touchUser(m)}>
+        <div className="users__avatar"/>
+        <div className="users__name">{users[key].name}</div>
+      </div>
+    )
+  })
+
+  
+
   return (
     <div className="face">
       <Head>
@@ -98,22 +141,11 @@ export default function Home() {
 
         <div className="users">
           <div className="users__line">
-            <div className="users__profile selected">
-              <div className="users__avatar"/>
-              <div className="users__name">Я</div>
-            </div>
-            <div className="users__profile">
-              <div className="users__avatar"/>
-              <div className="users__name">Андрей</div>
-            </div>
-            <div className="users__profile">
-              <div className="users__avatar"/>
-              <div className="users__name">Антон</div>
-            </div>
-            <div className="users__profile">
-              <div className="users__avatar"/>
-              <div className="users__name">Анфиса</div>
-            </div>
+            {
+              usersArr.map(key => {
+                return key
+              })
+            }
           </div>
         </div>
 

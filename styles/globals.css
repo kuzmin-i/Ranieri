@@ -60,7 +60,7 @@ a {
 
 .price.descr {
   font-size: 24px;
-  margin-top: 40px;
+  margin-top: 25px;
   height: 60px 
 }
 
@@ -114,6 +114,7 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
+  cursor: pointer;
 }
 
 .users__profile.selected .users__avatar {
