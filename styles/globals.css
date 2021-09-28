@@ -114,7 +114,6 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  cursor: pointer;
 }
 
 .users__profile.selected .users__avatar {
