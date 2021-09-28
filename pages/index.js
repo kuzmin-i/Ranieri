@@ -8,37 +8,71 @@ export default function Home() {
   let inputDescr = useRef()
 
   const [inputQueue, setInputQueue] = useState('inputPrice')
-  const [num, setNum] = useState(3)
+  const [focusState, setFocusState] = useState(false)
   
-  const changeInputQueue = useCallback((e) => {
-    setNum(Math.random())
-    console.log(num)
+  /*const changeInputQueue = useCallback((e) => {
 
     if(e.key === 'Enter') {
-      console.log('Happ')
       if(inputQueue === 'inputPrice') { 
         setInputQueue('inputDescr') 
       } else { 
         setInputQueue('inputPrice') 
        }
     } else {
-      if(inputQueue === 'inputPrice') {
+      if(inputQueue === 'inputPrice' && !focusState) {
         let currentVal = inputPrice.current.value.replace(' ₽', '')
         inputPrice.current.value = currentVal + e.key + ' ₽'
-      } else if(inputQueue === 'inputDescr') {
+      } else if(inputQueue === 'inputDescr' && !focusState) {
         inputDescr.current.value += e.key
       }
 
     }
   })
+  */
+
+  const priceSumKeypress = (e) => {
+    e.preventDefault()
+    if(e.key === 'Enter') {
+      if(inputQueue === 'inputPrice') { 
+        setInputQueue('inputDescr') 
+        inputDescr.current.focus()
+      } else { 
+        setInputQueue('inputPrice') 
+       }
+    } else if(e.key === 'Backspace') {
+      let currentVal = inputPrice.current.value.replace(' ₽', '').slice(0, -1)
+      inputPrice.current.value = currentVal + ' ₽'
+    } else if(isFinite(e.key)) {
+      let currentVal = inputPrice.current.value.replace(' ₽', '')
+      inputPrice.current.value = currentVal + e.key + ' ₽'
+    }
+  }
+
+  const makeFocus = () => {
+    setFocusState(true)
+    setInputQueue('inputPrice') 
+  }
+
+  const makeFocusOut = () => {
+    setFocusState(false)
+    setInputQueue('inputDescr')
+  }
 
   useEffect(()=> {
-    window.addEventListener('keypress', changeInputQueue)
+    /*window.addEventListener('keypress', changeInputQueue)*/
+    inputPrice.current.addEventListener('focus', makeFocus)
+    inputPrice.current.addEventListener('focusout', makeFocusOut)
+    inputPrice.current.addEventListener('keydown', priceSumKeypress)
+
     return () => {
-      window.removeEventListener('keypress', changeInputQueue)
+      /*window.removeEventListener('keypress', changeInputQueue)*/
+      inputPrice.current.removeEventListener('focus', makeFocus)
+      inputPrice.current.removeEventListener('focusout', makeFocusOut)
+      inputPrice.current.removeEventListener('keydown', priceSumKeypress)
+
     }
 
-  }, [changeInputQueue])
+  }, [makeFocus, makeFocusOut, priceSumKeypress])
 
   return (
     <div className="face">
@@ -50,7 +84,7 @@ export default function Home() {
       </Head>
       <div className="form">
         <input placeholder="0 ₽" ref={inputPrice} className="price sum" type="text"/>
-        <input ref={inputDescr} className="price descr"/>
+        <input ref={inputDescr} placeholder="Комментарий" className="price descr"/>
 
         <div className="users">
           <div className="users__line">

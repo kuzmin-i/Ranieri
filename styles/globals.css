@@ -39,19 +39,19 @@ a {
 
 .price {
   text-align: center;
-  border: 1px solid black;
+  border: 0px solid black;
   display: block;
   width: 100%
 }
 
 .price.sum {
-  font-size: 36px;
-  border-bottom: 1px solid black;
+  font-size: 82px;
 }
 
 .price.descr {
-  font-size: 18px;
-  margin-top: 40px 
+  font-size: 24px;
+  margin-top: 40px;
+  height: 60px 
 }
 
 .form {
