@@ -23,7 +23,8 @@ export default function Home() {
        }
     } else {
       if(inputQueue === 'inputPrice') {
-        inputPrice.current.value += e.key
+        let currentVal = inputPrice.current.value.replace(' ₽', '')
+        inputPrice.current.value = currentVal + e.key + ' ₽'
       } else if(inputQueue === 'inputDescr') {
         inputDescr.current.value += e.key
       }
@@ -33,7 +34,6 @@ export default function Home() {
 
   useEffect(()=> {
     window.addEventListener('keypress', changeInputQueue)
-    inputPrice.current.focus()
     return () => {
       window.removeEventListener('keypress', changeInputQueue)
     }
@@ -48,8 +48,8 @@ export default function Home() {
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta names="apple-mobile-web-app-status-bar-style" content="black-translucent" />
       </Head>
-      <input ref={inputPrice} className="price sum" type="text"/>
-      <textarea ref={inputDescr} className="price descr"></textarea>
+      <input placeholder="0 ₽" ref={inputPrice} className="price sum" type="text"/>
+      <input ref={inputDescr} className="price descr"/>
     </div>
   )
 }

@@ -21,9 +21,11 @@ a {
 }
 
 .price.sum {
-  font-size: 36px
+  font-size: 36px;
+  border-bottom: 1px solid black
 }
 
 .price.descr {
-  font-size: 18px 
+  font-size: 18px;
+  margin-top: 40px 
 }
