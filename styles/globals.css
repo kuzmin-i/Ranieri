@@ -74,6 +74,7 @@ a {
 .price.sum {
   font-size: 82px;
   font-weight: 500;
+  height: 96px;
   margin-top: 12vh;
 }
 

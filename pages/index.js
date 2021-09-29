@@ -108,7 +108,8 @@ export default function Home() {
     }
   }
 
-  const [usersList, setUsersList] = useState([true, false, false, false])
+  const [usersList, setUsersList] = useState([true, false, false, false, false])
+  const usersRefs = [useRef(), useRef(), useRef(), useRef(), useRef()]
 
   const touchUser = (m) => {
     let _usersList = [...usersList]
@@ -117,12 +118,24 @@ export default function Home() {
     setUsersList(_usersList)
   }
 
+  useEffect(() => {
+    for(let i=0; i<usersRefs.length; i++) {
+      usersRefs[i].current.addEventListener('click', () => touchUser(i))
+    }
+
+    return () => {
+      for(let b=0; b<usersRefs.length; b++) {
+        usersRefs[b].current.removeEventListener('click', () => touchUser(i))
+      }
+    }
+  }, [touchUser])
+
   let usersArr = Object.keys(users).map((key, m) => {
     let selected = ''
     if(usersList[m]) selected += ' selected'
 
     return (
-      <div className={"users__profile" + selected} onClick={() => touchUser(m)}>
+      <div className={"users__profile" + selected} ref={ usersRefs[m] }>
         <div className="users__avatar">
           <div className="users__photo" style={{backgroundImage: "url('" + users[key].avatar + "')"}}/>
         </div>
