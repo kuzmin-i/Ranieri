@@ -123,7 +123,9 @@ export default function Home() {
 
     return (
       <div className={"users__profile" + selected} onClick={() => touchUser(m)}>
-        <div className="users__avatar"/>
+        <div className="users__avatar">
+          <div className="users__photo"/>
+        </div>
         <div className="users__name">{users[key].name}</div>
       </div>
     )

@@ -2,9 +2,10 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: Roboto, sans-serif;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
 a {
   color: inherit;
@@ -13,6 +14,8 @@ a {
 
 * {
   box-sizing: border-box;
+
+  font-family: Roboto;
 }
 
 .back {
@@ -39,6 +42,7 @@ a {
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
+  
 }
 
 .price {
@@ -61,6 +65,7 @@ a {
 
 .price.sum {
   font-size: 82px;
+  font-weight: 500;
 }
 
 .price.descr {
@@ -90,8 +95,6 @@ a {
 
 .form__btn {
   background: #7141FB;
-  margin-left: 15px;
-  margin-right: 15px;
   border-radius: 12px;
   width:100%;
   padding-top: 20px;
@@ -103,14 +106,21 @@ a {
 
 /* Users to Share */
 .users {
-  margin-left: 15px;
   display: flex;
   width: 100%;
   overflow-x: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none; 
   overflow-y: hidden;
   margin-top: 120px;
   align-items: center;
 }
+
+.users::-webkit-scrollbar {
+  display: none;
+}
+
+
 
 .users__line {
   display: block;
@@ -119,21 +129,44 @@ a {
 }
 
 .users__profile {
-  margin-right: 20px;
+  margin-right: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .users__profile.selected .users__avatar {
-  border: 4px solid blue
+  border: 4px solid #7141FB
 }
 
 .users__avatar {
+  border-radius: 500px;
+  width: 71px;
+  height: 71px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.users__photo {
   background: grey;
   border-radius: 500px;
-  width: 60px;
-  height: 60px
+  width: 61px;
+  height: 61px
 }
 
 .users__name {
