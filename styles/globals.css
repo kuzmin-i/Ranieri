@@ -15,6 +15,10 @@ a {
   box-sizing: border-box;
 }
 
+.back {
+  background: #F1EFE5
+}
+
 .face {
   display: -webkit-box;
   display: -webkit-flex;
@@ -41,7 +45,8 @@ a {
   text-align: center;
   border: 0px solid black;
   display: block;
-  width: 100%
+  width: 100%;
+  background: none;
 }
 
 .price:focus {
@@ -65,7 +70,7 @@ a {
 }
 
 .form {
-  width: 95vw;
+  width: 100vw;
   max-width: 600px;
   height: auto;
   display: -webkit-box;
@@ -84,7 +89,10 @@ a {
 }
 
 .form__btn {
-  background: black;
+  background: #7141FB;
+  margin-left: 15px;
+  margin-right: 15px;
+  border-radius: 12px;
   width:100%;
   padding-top: 20px;
   padding-bottom: 20px;
@@ -95,6 +103,7 @@ a {
 
 /* Users to Share */
 .users {
+  margin-left: 15px;
   display: flex;
   width: 100%;
   overflow-x: scroll;

@@ -101,6 +101,10 @@ export default function Home() {
     'daniil': {
       name: 'Даня',
       avatar: ''
+    },
+    'new': {
+      name: 'Еще...',
+      avatar: ''
     }
   }
 
@@ -128,7 +132,7 @@ export default function Home() {
   
 
   return (
-    <div className="face">
+    <div className="face back">
       <Head>
         <title>Ranieri</title>
         <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
