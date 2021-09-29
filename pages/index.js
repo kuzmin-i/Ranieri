@@ -104,7 +104,7 @@ export default function Home() {
     },
     'new': {
       name: 'Еще...',
-      avatar: ''
+      avatar: '/d/add.svg'
     }
   }
 
@@ -124,7 +124,7 @@ export default function Home() {
     return (
       <div className={"users__profile" + selected} onClick={() => touchUser(m)}>
         <div className="users__avatar">
-          <div className="users__photo"/>
+          <div className="users__photo" style={{backgroundImage: "url('" + users[key].avatar + "')"}}/>
         </div>
         <div className="users__name">{users[key].name}</div>
       </div>
@@ -142,8 +142,16 @@ export default function Home() {
         <meta names="apple-mobile-web-app-status-bar-style" content="black-translucent" />
       </Head>
       <div className="form">
-        <input placeholder="0 ₽" ref={inputPrice} className="price sum" type="text"/>
-        <input ref={inputDescr} placeholder="Комментарий" className="price descr"/>
+        <div className="bar space-between borders">
+          <div className="bar__left"></div>
+          <div className="bar__right">
+            <div className="bar__notification">
+              <div className="bar__messages">1</div>
+            </div>
+          </div>
+        </div>
+        <input placeholder="0 ₽" ref={inputPrice} className="price sum borders" type="text"/>
+        <input ref={inputDescr} placeholder="Комментарий" className="price descr borders"/>
 
         <div className="users">
           <div className="users__line">
@@ -154,8 +162,15 @@ export default function Home() {
             }
           </div>
         </div>
-
-        <div className="form__btn">Добавить</div>
+        <div className="form__results space-between borders">
+          <span>Общая сумма</span>
+          <b>825 ₽</b>
+        </div>
+        <div className="form__results space-between borders">
+          <span>С меня</span>
+          <b>825 ₽</b>
+        </div>
+        <div className="form__btn borders">Добавить</div>
       </div>
     </div>
   )
