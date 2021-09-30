@@ -1,0 +1,22 @@
+@import './row/day__row.css';
+@import './incoming/day__incoming.css';
+@import './header/day__header.css';
+
+@import './left/day__left.css';
+@import './right/day__right.css';
+
+@import './users/day__users.css';
+@import './user/day__user.css';
+
+@import './sum/day__sum.css';
+@import './scroll/day__scroll.css';
+
+@import './varsum/day__varsum.css';
+@import './varsumline/varsumline.css';
+
+@import './arrowright/day__arrowright.css';
+
+.day {
+    margin-top: 24px;
+    width: 100vw
+}
