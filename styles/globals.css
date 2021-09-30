@@ -147,6 +147,10 @@ a {
   align-items: center;
 }
 
+.users__profile:focus, .users__profile:focus-visible {
+  background: none;
+}
+
 .users__profile:not(:last-child) {
   margin-right: 10px;
 }
