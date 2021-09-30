@@ -7,6 +7,8 @@ import Bar from './components/bar'
 import AddScreen from './components/addScreen'
 import MessagesScreen from './components/messagesScreen'
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 export default function Home() {
   
 

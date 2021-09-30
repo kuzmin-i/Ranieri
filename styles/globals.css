@@ -3,11 +3,24 @@ body {
   padding: 0;
   margin: 0;
   font-family: Roboto, sans-serif;
+  background: #F1EFE5
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
 @import './blocks/day/day.css';
+
+.btn-primary {
+  color: black !important;
+  background: none !important;
+  border: 0px !important;
+  font-weight: 500;
+  font-variant: small-caps;
+  font-size: 18px !important;
+  font-family: Roboto, sans-serif;
+  text-transform: uppercase;
+  padding-left: 0px !important
+}
 
 a {
   color: inherit;
@@ -228,6 +241,17 @@ a {
 .bar {
   height: 53px;
   margin-top: 32px
+}
+
+.bar__right, .bar__left {
+  display: -webkit-flex;
+  display: -moz-box;
+  display: flex;
+  width: auto;
+  height: 100%;
+  -webkit-align-items: center;
+  -moz-box-align: center;
+  align-items: center;
 }
 
 .bar__notification {

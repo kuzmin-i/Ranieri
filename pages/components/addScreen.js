@@ -1,5 +1,7 @@
 import { useEffect, useState, useRef } from "react"
 
+import {users} from '../data/users'
+
 const AddScreen = () => {
     let inputPrice = useRef()
   let inputDescr = useRef()
@@ -75,29 +77,6 @@ const AddScreen = () => {
 
   
 
-  const users = {
-    'me': {
-      name: 'Я',
-      avatar: ''
-    },
-    'yurii': {
-      name: 'Юрец',
-      avatar: ''
-    },
-    'kristina': {
-      name: 'Кристина',
-      avatar: ''
-    },
-    'daniil': {
-      name: 'Даня',
-      avatar: ''
-    },
-    'new': {
-      name: 'Еще...',
-      avatar: '/d/add.svg'
-    }
-  }
-
   const [usersList, setUsersList] = useState([true, false, false, false, false])
   const [shareWith, setShareWith] = useState(1)
   const usersRefs = [useRef(), useRef(), useRef(), useRef(), useRef()]
@@ -116,7 +95,7 @@ const AddScreen = () => {
     return (
       <div className={"users__profile" + selected} ref={ usersRefs[m] } onClick={ () => touchUser(m) }>
         <div className="users__avatar">
-          <div className="users__photo" style={{backgroundImage: "url('" + users[key].avatar + "')"}}/>
+          <div className="users__photo" style={{backgroundImage: "url('" + users[key].avatar + "')", backgroundSize: 'contain'}}/>
         </div>
         <div className="users__name">{users[key].name}</div>
       </div>
