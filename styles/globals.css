@@ -55,6 +55,7 @@ a {
   border: 0px solid black;
   display: block;
   background: none;
+  padding: 0px
 }
 
 .price::placeholder {
@@ -151,6 +152,7 @@ a {
   background: none;
   outline: none !important;
   box-shadow: none !important;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 .users__profile:not(:last-child) {
@@ -230,6 +232,7 @@ a {
   height: 45px;
   background: url('/d/notification.svg') no-repeat center center;
   position: relative;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 .bar__addmore {
@@ -239,6 +242,7 @@ a {
   height: 45px;
   background: url('/d/addnew.svg') no-repeat center center;
   position: relative;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 .bar__messages {
