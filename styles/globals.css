@@ -152,7 +152,7 @@ a {
   background: none;
   outline: none !important;
   box-shadow: none !important;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
 }
 
 .users__profile:not(:last-child) {
