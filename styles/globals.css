@@ -57,8 +57,9 @@ a {
   border: 0px solid black;
   display: block;
   background: none;
-  padding: 0px
+  padding: 0px;
 }
+
 
 .price::placeholder {
   color: #60605C
@@ -67,11 +68,13 @@ a {
 .price:focus {
   border: 0px solid black;
   outline-width: 0;
+  outline: none !important
 }
 
 .price:focus-visible {
   border: 0px solid black;
   outline-width: 0;
+  outline: none !important
 }
 
 .price.sum {
