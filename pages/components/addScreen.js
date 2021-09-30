@@ -93,7 +93,7 @@ const AddScreen = () => {
     if(usersList[m]) selected += ' selected'
 
     return (
-      <div className={"users__profile" + selected} ref={ usersRefs[m] } onClick={ () => touchUser(m) }>
+      <div key={"userProfile_" + m} className={"users__profile" + selected} ref={ usersRefs[m] } onClick={ () => touchUser(m) }>
         <div className="users__avatar">
           <div className="users__photo" style={{backgroundImage: "url('" + users[key].avatar + "')", backgroundSize: 'contain'}}/>
         </div>

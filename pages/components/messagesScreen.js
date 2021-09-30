@@ -110,13 +110,13 @@ const MessagesScreen = () => {
 
                 for(let c=0; c<MessagesData[i].orders[b].users.length; c++) {
                     let userPhoto = users[MessagesData[i].orders[b].users[c]].avatar
-                    let user = <div className="day__user" style={{background: 'url("' + userPhoto + '")', backgroundSize: 'contain'}}/>
+                    let user = <div key={"Day"+i+"_Row"+b+"_User"+c} className="day__user" style={{background: 'url("' + userPhoto + '")', backgroundSize: 'contain'}}/>
 
                     usersComps.push(user)
                 }
 
                 usersList = (
-                    <div className="day__users">
+                    <div key={"Day"+i+"_usersList"+b} className="day__users">
                             { usersComps }
                     </div>
                 )
@@ -128,20 +128,20 @@ const MessagesScreen = () => {
             let scrollBlock = (<></>)
             if(MessagesData[i].orders[b].share && MessagesData[i].orders[b].varsum) {
                 sumBlock = (
-                    <div class="day__varsum">
-                        <div class="day__varsumline">
-                            <div class="day__sum var">-{ MessagesData[i].orders[b].varsum } ₽</div>
-                            <div class="day__arrowright"/>
-                            <div class="day__sum">-{ MessagesData[i].orders[b].sum } ₽</div>
+                    <div className="day__varsum">
+                        <div className="day__varsumline">
+                            <div className="day__sum var">-{ MessagesData[i].orders[b].varsum } ₽</div>
+                            <div className="day__arrowright"/>
+                            <div className="day__sum">-{ MessagesData[i].orders[b].sum } ₽</div>
                         </div>
                     </div>
                 )
 
-                scrollBlock = (<div class="day__scroll"/>)
+                scrollBlock = (<div className="day__scroll"/>)
             }
 
             let orderDOM = (
-                <div className={"day__row" + incomeClass}>
+                <div key={"day"+i+"_row"+b} className={"day__row" + incomeClass}>
                     <div className="day__left">{ MessagesData[i].orders[b].description.substr(0, 8) } { usersList }</div>
                     <div className="day__right">
                         {
@@ -155,11 +155,9 @@ const MessagesScreen = () => {
             ordersData.push(orderDOM)
         }
 
-        console.log(ordersData)
-
 
         daysData.push(
-            <div className="day">
+            <div key={"day"+i} className="day">
                 <div className="day__row day__header">
                     <div className="day__left">{ MessagesData[i].date }</div>
                     <div className="day__right">
