@@ -12,7 +12,9 @@ const Notifications = ({click}) => {
     )
 }
 
-const Bar = ({notifications, add, openMessages, openAdd }) => {
+const Bar = ({openMessages, openAdd, activeScreen }) => {
+    let notifications = true
+    let add = (activeScreen === "Messages") ? true : false
 
     return (
         <div className="bar space-between borders">

@@ -34,6 +34,7 @@ export default function Home() {
           openMessages = { () => setActiveScreen('Messages') }
           add={false}
           openAdd = { () => setActiveScreen('Add') }
+          activeScreen={ activeScreen }
         />
 
         { Screens[activeScreen] }
