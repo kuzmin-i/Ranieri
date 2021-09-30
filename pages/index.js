@@ -3,146 +3,19 @@ import Image from 'next/image'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import styles from '../styles/Home.module.css'
 
+import Bar from './components/bar'
+import AddScreen from './components/addScreen'
+import MessagesScreen from './components/messagesScreen'
+
 export default function Home() {
-  let inputPrice = useRef()
-  let inputDescr = useRef()
-
-  const [inputQueue, setInputQueue] = useState('inputPrice')
-  const [focusState, setFocusState] = useState(false)
   
-  /*const changeInputQueue = useCallback((e) => {
 
-    if(e.key === 'Enter') {
-      if(inputQueue === 'inputPrice') { 
-        setInputQueue('inputDescr') 
-      } else { 
-        setInputQueue('inputPrice') 
-       }
-    } else {
-      if(inputQueue === 'inputPrice' && !focusState) {
-        let currentVal = inputPrice.current.value.replace(' ₽', '')
-        inputPrice.current.value = currentVal + e.key + ' ₽'
-      } else if(inputQueue === 'inputDescr' && !focusState) {
-        inputDescr.current.value += e.key
-      }
-
-    }
-  })
-  */
-
-  const priceSumKeypress = (e) => {
-    e.preventDefault()
-    if(e.key === 'Enter') {
-      if(inputQueue === 'inputPrice') { 
-        setInputQueue('inputDescr') 
-        inputDescr.current.focus()
-      } else { 
-        setInputQueue('inputPrice') 
-       }
-    } else if(e.key === 'Backspace') {
-      let currentVal = inputPrice.current.value.replace(' ₽', '').slice(0, -1)
-      inputPrice.current.value = currentVal + ' ₽'
-    } else if(isFinite(e.key)) {
-      let currentVal = inputPrice.current.value.replace(' ₽', '')
-      inputPrice.current.value = currentVal + e.key + ' ₽'
-    }
+  const Screens = {
+    'Add': <AddScreen />,
+    'Messages': <MessagesScreen/>
   }
 
-  const makeFocus = () => {
-    setFocusState(true)
-    setInputQueue('inputPrice') 
-  }
-
-  const makeFocusOut = () => {
-    setFocusState(false)
-    setInputQueue('inputDescr')
-  }
-
-  const makeDescrFocusOut = (e) => {
-    if(e.key === 'Enter') {
-      inputDescr.current.blur()
-    }
-  }
-
-  useEffect(()=> {
-    /*window.addEventListener('keypress', changeInputQueue)*/
-    inputPrice.current.addEventListener('focus', makeFocus)
-    inputPrice.current.addEventListener('focusout', makeFocusOut)
-    inputPrice.current.addEventListener('keydown', priceSumKeypress)
-
-    inputDescr.current.addEventListener('keydown', makeDescrFocusOut)
-
-    return () => {
-      /*window.removeEventListener('keypress', changeInputQueue)*/
-      inputPrice.current.removeEventListener('focus', makeFocus)
-      inputPrice.current.removeEventListener('focusout', makeFocusOut)
-      inputPrice.current.removeEventListener('keydown', priceSumKeypress)
-
-      inputDescr.current.removeEventListener('keydown', makeDescrFocusOut)
-
-    }
-
-  }, [makeFocus, makeFocusOut, priceSumKeypress, makeDescrFocusOut])
-
-  /* Set Users List */
-  const users = {
-    'me': {
-      name: 'Я',
-      avatar: ''
-    },
-    'yurii': {
-      name: 'Юрец',
-      avatar: ''
-    },
-    'kristina': {
-      name: 'Кристина',
-      avatar: ''
-    },
-    'daniil': {
-      name: 'Даня',
-      avatar: ''
-    },
-    'new': {
-      name: 'Еще...',
-      avatar: '/d/add.svg'
-    }
-  }
-
-  const [usersList, setUsersList] = useState([true, false, false, false, false])
-  const usersRefs = [useRef(), useRef(), useRef(), useRef(), useRef()]
-
-  const touchUser = (m) => {
-    let _usersList = [...usersList]
-    _usersList[m] = !usersList[m]
-
-    setUsersList(_usersList)
-  }
-
-  useEffect(() => {
-    for(let i=0; i<usersRefs.length; i++) {
-      usersRefs[i].current.addEventListener('click', () => touchUser(i))
-    }
-
-    return () => {
-      for(let b=0; b<usersRefs.length; b++) {
-        usersRefs[b].current.removeEventListener('click', () => touchUser(i))
-      }
-    }
-  }, [touchUser])
-
-  let usersArr = Object.keys(users).map((key, m) => {
-    let selected = ''
-    if(usersList[m]) selected += ' selected'
-
-    return (
-      <div className={"users__profile" + selected} ref={ usersRefs[m] }>
-        <div className="users__avatar">
-          <div className="users__photo" style={{backgroundImage: "url('" + users[key].avatar + "')"}}/>
-        </div>
-        <div className="users__name">{users[key].name}</div>
-      </div>
-    )
-  })
+  const [activeScreen, setActiveScreen] = useState('Add')
 
   
 
@@ -155,35 +28,15 @@ export default function Home() {
         <meta names="apple-mobile-web-app-status-bar-style" content="black-translucent" />
       </Head>
       <div className="form">
-        <div className="bar space-between borders">
-          <div className="bar__left"></div>
-          <div className="bar__right">
-            <div className="bar__notification">
-              <div className="bar__messages">1</div>
-            </div>
-          </div>
-        </div>
-        <input placeholder="0 ₽" ref={inputPrice} className="price sum borders" type="text"/>
-        <input ref={inputDescr} placeholder="Комментарий" className="price descr borders"/>
+        
+        <Bar 
+          notifications={true}
+          openMessages = { () => setActiveScreen('Messages') }
+          add={false}
+          openAdd = { () => setActiveScreen('Add') }
+        />
 
-        <div className="users">
-          <div className="users__line">
-            {
-              usersArr.map(key => {
-                return key
-              })
-            }
-          </div>
-        </div>
-        <div className="form__results space-between borders">
-          <span>Общая сумма</span>
-          <b>825 ₽</b>
-        </div>
-        <div className="form__results space-between borders">
-          <span>С меня</span>
-          <b>825 ₽</b>
-        </div>
-        <div className="form__btn borders">Добавить</div>
+        { Screens[activeScreen] }
       </div>
     </div>
   )

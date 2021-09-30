@@ -218,10 +218,20 @@ a {
 }
 
 .bar__notification {
+  margin-left: 18px;
   display: inline-block;
   width: 45px;
   height: 45px;
   background: url('/d/notification.svg') no-repeat center center;
+  position: relative;
+}
+
+.bar__addmore {
+  margin-left: 18px;
+  display: inline-block;
+  width: 45px;
+  height: 45px;
+  background: url('/d/addnew.svg') no-repeat center center;
   position: relative;
 }
 
