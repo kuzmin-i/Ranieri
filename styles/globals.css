@@ -149,6 +149,8 @@ a {
 
 .users__profile:focus, .users__profile:focus-visible {
   background: none;
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 .users__profile:not(:last-child) {
