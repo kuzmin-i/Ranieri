@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react"
 
-import {users} from '../data/users'
+import {users} from '../../data/users'
 
 const AddScreen = () => {
     let inputPrice = useRef()
