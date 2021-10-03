@@ -2,6 +2,8 @@ import { ResponsiveLine } from '@nivo/line'
 import { lcData } from '../../data/linechart'
 
 const LineChart = ({ data }) => (
+    
+
     <ResponsiveLine
         data={data}
         margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
@@ -15,7 +17,7 @@ const LineChart = ({ data }) => (
             tickSize: 5,
             tickPadding: 5,
             tickRotation: 0,
-            legend: 'transportation',
+            legend: 'Календарь',
             legendOffset: 36,
             legendPosition: 'middle'
         }}
@@ -24,7 +26,7 @@ const LineChart = ({ data }) => (
             tickSize: 5,
             tickPadding: 5,
             tickRotation: 0,
-            legend: 'count',
+            legend: '',
             legendOffset: -40,
             legendPosition: 'middle'
         }}
@@ -35,6 +37,26 @@ const LineChart = ({ data }) => (
         pointBorderColor={{ from: 'serieColor' }}
         pointLabelYOffset={-12}
         useMesh={true}
+        markers={[
+            {
+                axis: 'y',
+                value: 15000,
+                legend: 'Минимум',
+                legendOrientation: 'horizontal',
+                lineStyle: {stroke: 'grey', strokeWidth: 2}
+            }
+        ]}
+        defs={[{
+            id: 'gradientC',
+            type: 'linearGradient',
+            colors: [
+              { offset: 0, color: '#fff' },
+              { offset: 100, color: '#000' },
+            ],
+          },]}
+          fill={[
+            { match: '*', id: 'gradientC' },
+          ]}
         legends={[
             {
                 anchor: 'bottom-right',
