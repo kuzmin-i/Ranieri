@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react"
 
 import {users} from '../../data/users'
+import SwitchToogle from "./switchToogle"
 
 const AddScreen = () => {
     let inputPrice = useRef()
@@ -106,6 +107,10 @@ const AddScreen = () => {
         <>
            <input placeholder="0 ₽" ref={inputPrice} className="price sum borders" type="text"/>
             <input ref={inputDescr} placeholder="Комментарий" className="price descr borders"/>
+
+            <div className="switchToogle">
+              <SwitchToogle/>
+            </div>
 
             <div className="users">
                 <div className="users__line">

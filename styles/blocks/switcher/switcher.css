@@ -1,0 +1,14 @@
+@import './btn/switcher__btn.css';
+
+.switcher {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 1px;
+    border: 1px solid #3f3c3c;
+    border-radius: 20px;
+    color: #3f3c3c;
+    line-height: 100%;
+    margin-top: 54px
+}

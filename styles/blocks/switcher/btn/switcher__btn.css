@@ -1,0 +1,10 @@
+.switcher__btn {
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+.switcher__btn.selected {
+    background-color: #3f3c3c;
+    color: #f1efe5;
+}
