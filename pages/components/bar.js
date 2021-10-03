@@ -7,6 +7,18 @@ const AddMore = ({click}) => {
     )
 }
 
+const Analytics = ({click}) => {
+    return (
+        <div className="bar__analytics" onClick={ click }/> 
+    )
+}
+
+const Filter = ({click}) => {
+    return (
+        <div className="bar__filter" onClick={ click }/> 
+    )
+}
+
 const Notifications = ({click}) => {
     return (
         <div className="bar__notification" onClick={ click }>
@@ -25,16 +37,18 @@ const DropList = () => {
     )
 }
 
-const Bar = ({openMessages, openAdd, activeScreen }) => {
+const Bar = ({openMessages, openAdd, openAnalytics, activeScreen }) => {
     let notifications = true
-    let add = (activeScreen === "Messages") ? true : false
+    let add = (activeScreen === "Messages" || activeScreen === 'Analytics') ? true : false
+    let analytics = (activeScreen === "Messages") ? true : false
 
     return (
         <div className="bar space-between borders">
           <div className="bar__left">
-              { (add) ? <DropList/> : true }
+              { (add) ? <Filter/> : true }
           </div>
           <div className="bar__right">
+            { (add) ? <Analytics click={ openAnalytics }/> : true }
             { (add) ? <AddMore click={ openAdd }/> : true }
             { (notifications) ? <Notifications click={ openMessages } /> : true }
           </div>

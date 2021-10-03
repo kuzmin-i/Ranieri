@@ -3,13 +3,24 @@ body {
   padding: 0;
   margin: 0;
   font-family: Roboto, sans-serif;
-  background: #F1EFE5
+  background: #F1EFE5;
+  height: 100vh;
+  overflow-y: scroll
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+#__next {
+  background: #F1EFE5;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
 @import './blocks/day/day.css';
 @import './blocks/switcher/switcher.css';
+@import './blocks/chart/chart.css';
 
 .react-switch {
   vertical-align: middle;
@@ -54,7 +65,7 @@ a {
   display: -ms-flexbox;
   display: flex;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
@@ -260,6 +271,15 @@ a {
   align-items: center;
 }
 
+.bar__filter {
+  display: inline-block;
+  width: 45px;
+  height: 45px;
+  background: url('/d/filter.svg') no-repeat center center;
+  position: relative;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
 .bar__notification {
   margin-left: 18px;
   display: inline-block;
@@ -276,6 +296,16 @@ a {
   width: 45px;
   height: 45px;
   background: url('/d/addnew.svg') no-repeat center center;
+  position: relative;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.bar__analytics {
+  margin-left: 18px;
+  display: inline-block;
+  width: 45px;
+  height: 45px;
+  background: url('/d/analytics.svg') no-repeat center center;
   position: relative;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }

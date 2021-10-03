@@ -1,0 +1,14 @@
+.chart {
+    width: 100vw;
+    height: 500px;
+    overflow-x: scroll;
+}
+
+.chart__line {
+    width: 1000px;
+    height: 100%;
+}
+
+.chart::-webkit-scrollbar {
+    display: none;
+  }

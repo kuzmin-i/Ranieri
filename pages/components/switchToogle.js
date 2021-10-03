@@ -14,7 +14,7 @@ const SwitchToogle = () => {
         }
 
         return (
-            <div className={"switcher__btn" + selected} onClick={() => setChecked(i)}>{key}</div>
+            <div key={"switcher__btn" + selected} className={"switcher__btn" + selected} onClick={() => setChecked(i)}>{key}</div>
         )
     })
     

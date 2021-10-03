@@ -6,6 +6,7 @@ import styles from '../styles/Home.module.css'
 import Bar from './components/bar'
 import AddScreen from './components/addScreen'
 import MessagesScreen from './components/messagesScreen'
+import AnalyticsScreen from './components/analyticsScreen'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -14,7 +15,8 @@ export default function Home() {
 
   const Screens = {
     'Add': <AddScreen />,
-    'Messages': <MessagesScreen/>
+    'Messages': <MessagesScreen/>,
+    'Analytics': <AnalyticsScreen/>
   }
 
   const [activeScreen, setActiveScreen] = useState('Add')
@@ -40,6 +42,7 @@ export default function Home() {
           openMessages = { () => setActiveScreen('Messages') }
           add={false}
           openAdd = { () => setActiveScreen('Add') }
+          openAnalytics = { () => setActiveScreen('Analytics') }
           activeScreen={ activeScreen }
         />
 
