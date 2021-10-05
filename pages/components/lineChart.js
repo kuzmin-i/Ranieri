@@ -1,4 +1,5 @@
 import { ResponsiveLine } from '@nivo/line'
+import { linearGradientDef } from '@nivo/core'
 import { lcData } from '../../data/linechart'
 
 const LineChart = ({ data }) => (
@@ -44,19 +45,25 @@ const LineChart = ({ data }) => (
                 legend: 'Минимум',
                 legendOrientation: 'horizontal',
                 lineStyle: {stroke: 'grey', strokeWidth: 2}
+            },
+            {
+                axis: 'x',
+                value: '6 Cен',
+                legend: '40000',
+                legendOrientation: 'vertical',
+                lineStyle: {stroke: 'grey', strokeWidth: 2}
             }
         ]}
-        defs={[{
-            id: 'gradientC',
-            type: 'linearGradient',
-            colors: [
-              { offset: 0, color: '#fff' },
-              { offset: 100, color: '#000' },
-            ],
-          },]}
-          fill={[
-            { match: '*', id: 'gradientC' },
-          ]}
+        enableArea = {true}
+        defs={[
+            linearGradientDef('gradientA', [
+                { offset: 0, color: '#ff0000' },
+                { offset: 100, color: '#ff0000', opacity: 0 },
+            ])
+        ]}
+        fill={[
+        { match: '*', id: 'gradientA' },
+        ]}
         legends={[
             {
                 anchor: 'bottom-right',
