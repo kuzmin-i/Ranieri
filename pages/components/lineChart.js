@@ -44,21 +44,21 @@ const LineChart = ({ data }) => (
                 value: 15000,
                 legend: 'Минимум',
                 legendOrientation: 'horizontal',
-                lineStyle: {stroke: 'grey', strokeWidth: 2}
+                lineStyle: {stroke: 'grey', strokeWidth: 1}
             },
             {
                 axis: 'y',
                 value: 150000,
                 legend: 'Необходимый минимум',
                 legendOrientation: 'horizontal',
-                lineStyle: {stroke: 'grey', strokeWidth: 2}
+                lineStyle: {stroke: 'grey', strokeWidth: 1}
             },
             {
                 axis: 'y',
                 value: 0,
                 legend: 'Ноль',
                 legendOrientation: 'horizontal',
-                lineStyle: {stroke: 'grey', strokeWidth: 2}
+                lineStyle: {stroke: 'grey', strokeWidth: 1}
             }
         ]}
         enableArea = {true}
