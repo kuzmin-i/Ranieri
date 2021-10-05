@@ -1,11 +1,18 @@
+@import './greybox/chart__greybox.css';
+@import './cardblock/chart__cardblock.css';
+@import './carditem/chart__carditem.css';
+@import './bullet/chart__bullet.css';
+@import './bullets/chart__bullets.css';
+
 .chart {
     width: 100vw;
-    height: 500px;
+    height: 290px;
     overflow-x: scroll;
+    margin-top: 40px
 }
 
 .chart__line {
-    width: 1000px;
+    width: 100vw;
     height: 100%;
 }
 

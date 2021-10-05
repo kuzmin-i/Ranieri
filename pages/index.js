@@ -19,7 +19,7 @@ export default function Home() {
     'Analytics': <AnalyticsScreen/>
   }
 
-  const [activeScreen, setActiveScreen] = useState('Add')
+  const [activeScreen, setActiveScreen] = useState('Analytics')
 
   
 
