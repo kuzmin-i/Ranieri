@@ -7,7 +7,9 @@ const SwitchToogle = ({tabs}) => {
       setChecked(nextChecked);
     };
 
-    let states = tabs.map((key, i) => {
+    const _tabs = [...tabs]
+
+    let states = _tabs.map((key, i) => {
         let selected = ''
         if(checked === i) {
             selected = ' selected'

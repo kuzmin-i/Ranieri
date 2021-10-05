@@ -41,7 +41,7 @@ const SliderComponent = () => {
         let bulletsClass = ('CarouselItem-'+b === ActiveBullet) ? 'chart__bullet selected' : 'chart__bullet'
 
         itemBullets.push(
-            <div className={bulletsClass}/>
+            <div key={"cardbullet"+b} className={bulletsClass}/>
         )
     }
 
