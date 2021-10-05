@@ -9,7 +9,7 @@ const LineChart = ({ data }) => (
         data={data}
         margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
         xScale={{ type: 'point' }}
-        yScale={{ type: 'linear', min: 'auto', max: 'auto', stacked: true, reverse: false }}
+        yScale={{ type: 'linear', min: -30000, max: 200000, stacked: true, reverse: false }}
         yFormat=" >-.2f"
         axisTop={null}
         axisRight={null}
@@ -47,10 +47,17 @@ const LineChart = ({ data }) => (
                 lineStyle: {stroke: 'grey', strokeWidth: 2}
             },
             {
-                axis: 'x',
-                value: '6 Cен',
-                legend: '40000',
-                legendOrientation: 'vertical',
+                axis: 'y',
+                value: 150000,
+                legend: 'Необходимый минимум',
+                legendOrientation: 'horizontal',
+                lineStyle: {stroke: 'grey', strokeWidth: 2}
+            },
+            {
+                axis: 'y',
+                value: 0,
+                legend: 'Ноль',
+                legendOrientation: 'horizontal',
                 lineStyle: {stroke: 'grey', strokeWidth: 2}
             }
         ]}
