@@ -199,7 +199,7 @@ const AnalyticsScreen = () => {
             dialogClassName="modal-90w"
             aria-labelledby="example-custom-modal-styling-title"
         >
-            <Modal.Header closeButton>
+            <Modal.Header>
             </Modal.Header>
             <Modal.Body>
                 <SliderComponent/>

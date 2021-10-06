@@ -23,17 +23,12 @@ body::-webkit-scrollbar {
 }
 
 .modal-content {
-  height: calc(100vh - 20px) !important
+  height: calc(100vh - 20px - 40px) !important;
+  border-radius: 12px;
 }
 
 .modal-header {
   border-bottom: 0px !important
-}
-
-.modal {
-  min-height: -webkit-fill-available !important;
-  min-height: 100vh !important;
-  height: auto !important
 }
 /* end Hooks */
 
