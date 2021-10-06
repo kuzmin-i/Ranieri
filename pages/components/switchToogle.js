@@ -1,13 +1,13 @@
 import { useState } from "react";
-import Switch from "react-switch";
 
 const SwitchToogle = ({tabs}) => {
     const [checked, setChecked] = useState(0);
-    const handleChange = nextChecked => {
-      setChecked(nextChecked);
-    };
 
-    const _tabs = [...tabs]
+    let _tabs = []
+    
+    if(tabs) {
+        if(Array.isArray(tabs)) _tabs = [...tabs]
+    }
 
     let states = _tabs.map((key, i) => {
         let selected = ''
