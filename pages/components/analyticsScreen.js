@@ -6,7 +6,9 @@ import { useSpringCarousel } from 'react-spring-carousel-js'
 import { useEffect, useState } from "react"
 import Param1 from "./param1"
 
-const SliderComponent = () => {
+import Slider from "@farbenmeer/react-spring-slider";
+
+/*const SliderComponent = () => {
     const items = [
         {
             id: "CarouselItem-0",
@@ -70,9 +72,6 @@ const SliderComponent = () => {
           },
     ]
 
-   
-    
-
     const { carouselFragment, getIsActiveItem } = useSpringCarousel({
       withThumbs: false,
       items: items,
@@ -89,16 +88,6 @@ const SliderComponent = () => {
             <div key={"cardbullet"+b} className={bulletsClass}/>
         )
     }
-
-    useEffect(() => {
-        for(let b in BullArray) {
-            let sumup = 'CarouselItem-'+b
-            if(getIsActiveItem('CarouselItem-'+b)) {
-                console.log('L' + sumup)
-                setActiveBullet(sumup)
-            }
-        }
-    })
   
     return (
         <>
@@ -108,6 +97,49 @@ const SliderComponent = () => {
         <div className="chart__slider">{carouselFragment}</div>
         </>
     );
+}
+*/
+
+const SliderComponent = () => {
+    return (
+        <div className="chart__slider">
+            <Slider
+                hasBullets
+            >
+                <div className="chart__carditem">
+                    В графике пока нет данных, 
+                    поэтому&nbsp;он пуст <br/>
+                    <b>5 шагов, и график будет заполнен!</b>
+                    <hr/>
+                    <Param1 
+                        data={[]}
+                        label={'Введите средние траты за день'}
+                        placeholder={825}
+                        addmore={false}
+                        cycle={false}
+                    />
+                </div>
+                <div className="chart__carditem">
+                    <Param1 
+                        data={[]}
+                        label={'Введите ежемесячный доход / зарплату'}
+                        placeholder={20000}
+                        addmore={true}
+                        cycle={true}
+                    />
+                </div>
+                <div className="chart__carditem">
+                    <Param1 
+                        data={[]}
+                        label={'минимальная сумма для выживания'}
+                        placeholder={20000}
+                        addmore={true}
+                        cycle={true}
+                    />
+                </div>
+            </Slider>
+        </div>
+	);
 }
 
 const AnalyticsScreen = () => {
