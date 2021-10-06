@@ -1,0 +1,18 @@
+.param1__datebtn {
+    font-size: 12px;
+    color: black;
+    padding: 5px 10px;
+    border-radius: 20px;
+    border: 1px solid #3F3C3C;
+    display: flex;
+}
+
+.param1__datebtn::before {
+    content: '';
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+    background-image: url('/d/cycle.svg');
+    background-size: cover;
+    display: inline-block;
+}

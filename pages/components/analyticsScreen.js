@@ -4,24 +4,69 @@ import { lcData } from "../../data/linechart"
 import SwitchToogle from "./switchToogle"
 import { useSpringCarousel } from 'react-spring-carousel-js'
 import { useEffect, useState } from "react"
+import Param1 from "./param1"
 
 const SliderComponent = () => {
     const items = [
         {
             id: "CarouselItem-0",
-            renderItem: <div className="chart__carditem" background="#2c3e50">Carousel Item 1</div>,
+            renderItem: (
+                <div className="chart__carditem">
+                    В графике пока нет данных, 
+                    поэтому&nbsp;он пуст <br/>
+                    <b>5 шагов, и график будет заполнен!</b>
+                    <hr/>
+                    <Param1 
+                        data={[]}
+                        label={'Введите средние траты за день'}
+                        placeholder={825}
+                        addmore={false}
+                        cycle={false}
+                    />
+                </div>
+            ),
           },
           {
             id: "CarouselItem-1",
-            renderItem: <div className="chart__carditem" background="#c0392b">Carousel Item 2</div>,
+            renderItem: (
+                <div className="chart__carditem">
+                    <Param1 
+                        data={[]}
+                        label={'Введите ежемесячный доход / зарплату'}
+                        placeholder={20000}
+                        addmore={true}
+                        cycle={true}
+                    />
+                </div>
+            ),
           },
           {
             id: "CarouselItem-2",
-            renderItem: <div className="chart__carditem" background="#8e44ad">Carousel Item 3</div>,
+            renderItem: (
+                <div className="chart__carditem">
+                    <Param1 
+                        data={[]}
+                        label={'Введите ежемесячные кредиты / оплаты'}
+                        placeholder={20000}
+                        addmore={true}
+                        cycle={true}
+                    />
+                </div>
+            ),
           },
           {
             id: "CarouselItem-3",
-            renderItem: <div className="chart__carditem" background="#f39c12">Carousel Item 4</div>,
+            renderItem: (
+                <div className="chart__carditem">
+                    <Param1 
+                        data={[]}
+                        label={'минимальная сумма для выживания'}
+                        placeholder={20000}
+                        addmore={true}
+                        cycle={true}
+                    />
+                </div>
+            ),
           },
     ]
 
@@ -60,7 +105,7 @@ const SliderComponent = () => {
         <div className="chart__bullets">
             {itemBullets}
         </div>
-        <div>{carouselFragment}</div>
+        <div className="chart__slider">{carouselFragment}</div>
         </>
     );
 }

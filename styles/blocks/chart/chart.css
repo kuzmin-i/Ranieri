@@ -3,6 +3,7 @@
 @import './carditem/chart__carditem.css';
 @import './bullet/chart__bullet.css';
 @import './bullets/chart__bullets.css';
+@import './slider/chart__slider.css';
 
 .chart {
     width: 100vw;

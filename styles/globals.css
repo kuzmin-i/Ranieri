@@ -22,6 +22,8 @@ body::-webkit-scrollbar {
 @import './blocks/switcher/switcher.css';
 @import './blocks/chart/chart.css';
 
+@import './blocks/param1/param1.css';
+
 .react-switch {
   vertical-align: middle;
   margin-left: 4px;
