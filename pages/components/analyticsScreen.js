@@ -158,7 +158,7 @@ const AnalyticsScreen = () => {
 
     return (
         <>
-        <SwitchToogle tabs={['За текущий месяц', 'За период']}/>
+        {/*<SwitchToogle tabs={['За текущий месяц', 'За период']}/>*/}
         <div className="chart">
             <div className="chart__line">
                 
