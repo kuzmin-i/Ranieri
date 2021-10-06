@@ -17,7 +17,7 @@ const LineChart = ({ data }) => {
                 cy={lastCoord.position.y}
                 r={6}
                 fill="#FF5B24"
-                stroke={'#F1EFE5'}
+                stroke={'white'}
                 strokeWidth={3}
                 style={{ pointerEvents: "none" }}
             />

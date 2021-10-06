@@ -17,19 +17,18 @@ body::-webkit-scrollbar {
 }
 
 /* Hooks */
-.doYCGJ {
-  bottom: auto !important;
-  top: 0px !important;
-}
 
 .gWuazm {
   margin: 5px 0px !important
 }
 
-.slider__slide {
-  top: 30px
+.modal-content {
+  height: 100vh !important
 }
 
+.modal-header {
+  border-bottom: 0px !important
+}
 /* end Hooks */
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');

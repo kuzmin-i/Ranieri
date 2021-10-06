@@ -8,6 +8,9 @@ import Param1 from "./param1"
 import Slider from "@farbenmeer/react-spring-slider";
 import PropTypes from 'prop-types';
 
+import Modal from 'react-bootstrap/Modal';
+
+
 const BulletComponent = ({ onClick, isActive }) => (
     <li
         style={{
@@ -71,6 +74,19 @@ const SliderComponent = () => {
 }
 
 const AnalyticsScreen = () => {
+    const [introStatus, setIntro] = useState(false)
+
+    useEffect(
+        () => {
+          let showIntroModal = setTimeout(() => setIntro(true), 500);
+          
+          return () => {
+            clearTimeout(showIntroModal);
+          };
+        },
+        []
+      );
+
     let dailyAv = 1500
     let pointProfit = 40000
     let pointInf = [
@@ -176,6 +192,19 @@ const AnalyticsScreen = () => {
         <div className="chart__cardblock">
             <SliderComponent/>
         </div>
+
+        <Modal
+            show={introStatus}
+            onHide={() => setIntro(false)}
+            dialogClassName="modal-90w"
+            aria-labelledby="example-custom-modal-styling-title"
+        >
+            <Modal.Header closeButton>
+            </Modal.Header>
+            <Modal.Body>
+                <SliderComponent/>
+            </Modal.Body>
+        </Modal>
         </>
     )
 }
