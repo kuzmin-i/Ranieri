@@ -1,10 +1,11 @@
 .chart__carditem {
     width: 100%;
     min-height: 200px;
-    background: #F1EFE5;
+    background: white;
     color: #60605C;
     text-align: center;
     font-size: 18px;
+    line-height: 1.2;
 }
 
 .chart__carditem b {

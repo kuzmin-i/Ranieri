@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const SwitchToogle = ({tabs}) => {
+const SwitchToogle = ({tabs, screen}) => {
     const [checked, setChecked] = useState(0);
 
     let _tabs = []

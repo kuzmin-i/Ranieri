@@ -2,109 +2,37 @@ import LineChart from "./lineChart"
 import { lcData } from "../../data/linechart"
 
 import SwitchToogle from "./switchToogle"
-import { useSpringCarousel } from 'react-spring-carousel-js'
 import { useEffect, useState } from "react"
 import Param1 from "./param1"
 
 import Slider from "@farbenmeer/react-spring-slider";
+import PropTypes from 'prop-types';
 
-/*const SliderComponent = () => {
-    const items = [
-        {
-            id: "CarouselItem-0",
-            renderItem: (
-                <div className="chart__carditem">
-                    В графике пока нет данных, 
-                    поэтому&nbsp;он пуст <br/>
-                    <b>5 шагов, и график будет заполнен!</b>
-                    <hr/>
-                    <Param1 
-                        data={[]}
-                        label={'Введите средние траты за день'}
-                        placeholder={825}
-                        addmore={false}
-                        cycle={false}
-                    />
-                </div>
-            ),
-          },
-          {
-            id: "CarouselItem-1",
-            renderItem: (
-                <div className="chart__carditem">
-                    <Param1 
-                        data={[]}
-                        label={'Введите ежемесячный доход / зарплату'}
-                        placeholder={20000}
-                        addmore={true}
-                        cycle={true}
-                    />
-                </div>
-            ),
-          },
-          {
-            id: "CarouselItem-2",
-            renderItem: (
-                <div className="chart__carditem">
-                    <Param1 
-                        data={[]}
-                        label={'Введите ежемесячные кредиты / оплаты'}
-                        placeholder={20000}
-                        addmore={true}
-                        cycle={true}
-                    />
-                </div>
-            ),
-          },
-          {
-            id: "CarouselItem-3",
-            renderItem: (
-                <div className="chart__carditem">
-                    <Param1 
-                        data={[]}
-                        label={'минимальная сумма для выживания'}
-                        placeholder={20000}
-                        addmore={true}
-                        cycle={true}
-                    />
-                </div>
-            ),
-          },
-    ]
+const BulletComponent = ({ onClick, isActive }) => (
+    <li
+        style={{
+            width: "8px",
+            height: "8px",
+            borderRadius: "10px",
+            backgroundColor: "black",
+            margin: "0 6px",
+            opacity: (isActive) ? 1 : .3,
+        }}
+        onClick={onClick}
+    />
+);
 
-    const { carouselFragment, getIsActiveItem } = useSpringCarousel({
-      withThumbs: false,
-      items: items,
-    });
-
-    const [ActiveBullet, setActiveBullet] = useState('CarouselItem-0')
-    const BullArray = ["CarouselItem-0", "CarouselItem-1", "CarouselItem-2", "CarouselItem-3"]
-
-    let itemBullets = []
-    for(let b in items) {
-        let bulletsClass = ('CarouselItem-'+b === ActiveBullet) ? 'chart__bullet selected' : 'chart__bullet'
-
-        itemBullets.push(
-            <div key={"cardbullet"+b} className={bulletsClass}/>
-        )
-    }
-  
-    return (
-        <>
-        <div className="chart__bullets">
-            {itemBullets}
-        </div>
-        <div className="chart__slider">{carouselFragment}</div>
-        </>
-    );
-}
-*/
+BulletComponent.propTypes = {
+    onClick: PropTypes.func.isRequired,
+    isActive: PropTypes.bool.isRequired,
+};
 
 const SliderComponent = () => {
     return (
         <div className="chart__slider">
             <Slider
                 hasBullets
+                BulletComponent={BulletComponent}
             >
                 <div className="chart__carditem">
                     В графике пока нет данных, 
@@ -235,17 +163,18 @@ const AnalyticsScreen = () => {
 
     return (
         <>
-        <SwitchToogle tabs={['За текущий месяц', 'За период']}/>
-        <div className="chart">
-            <div className="chart__line">
-                
-                <LineChart data={ chartData }/>
+        <div className="whitecard">
+            <SwitchToogle tabs={['За текущий месяц', 'За период']}/>
+            <div className="chart">
+                <div className="chart__line">
+                    
+                    <LineChart data={ chartData }/>
+                </div>
             </div>
         </div>
-        <div className="chart__greybox">
-            <div className="chart__cardblock">
-                <SliderComponent/>
-            </div>
+        
+        <div className="chart__cardblock">
+            <SliderComponent/>
         </div>
         </>
     )

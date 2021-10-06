@@ -16,11 +16,28 @@ body::-webkit-scrollbar {
   background: #F1EFE5;
 }
 
+/* Hooks */
+.doYCGJ {
+  bottom: auto !important;
+  top: 0px !important;
+}
+
+.gWuazm {
+  margin: 5px 0px !important
+}
+
+.slider__slide {
+  top: 30px
+}
+
+/* end Hooks */
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
 @import './blocks/day/day.css';
 @import './blocks/switcher/switcher.css';
 @import './blocks/chart/chart.css';
+@import './blocks/whitecard/whitecard.css';
 
 @import './blocks/param1/param1.css';
 
