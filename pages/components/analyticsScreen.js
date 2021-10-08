@@ -4,6 +4,7 @@ import { lcData } from "../../data/linechart"
 import SwitchToogle from "./switchToogle"
 import { useEffect, useState } from "react"
 import Param1 from "./param1"
+import Param2 from "./param2"
 
 import Slider from "@farbenmeer/react-spring-slider";
 import PropTypes from 'prop-types';
@@ -38,19 +39,19 @@ const SliderComponent = () => {
                 BulletComponent={BulletComponent}
             >
                 <div className="chart__carditem">
-                    В графике пока нет данных, 
-                    поэтому&nbsp;он пуст <br/>
-                    <b>5 шагов, и график будет заполнен!</b>
-                    <hr/>
-                    <Param1 
-                        data={[]}
-                        label={'Введите средние траты за день'}
-                        placeholder={825}
-                        addmore={false}
-                        cycle={false}
-                    />
+                    <h2>
+                        <span>В графике пока нет данных о вашей финансовой активности</span>
+                        <br/><br/>
+                        <b>Для настройки графика необходимо пройти всего 5 шагов</b>
+                    </h2>
+                    <Param2/>
                 </div>
                 <div className="chart__carditem">
+                    <h2>
+                        <span>Введите </span>
+                        <b>средние ежедневные траты</b>
+                    </h2>
+                    <h4>К примеру, карманные расходы на питание, бензин и жвачку "Орбит" из Пятерочки на углу</h4>
                     <Param1 
                         data={[]}
                         label={'Введите ежемесячный доход / зарплату'}
@@ -58,15 +59,63 @@ const SliderComponent = () => {
                         addmore={true}
                         cycle={true}
                     />
+                    <Param2/>
                 </div>
                 <div className="chart__carditem">
+                    <h2>
+                        <span>Какие у вас </span>
+                        <b>фиксированные доходы в&nbsp;месяц</b>
+                    </h2>
+                    <h4>К примеру, зарплата на основной работе</h4>
                     <Param1 
                         data={[]}
-                        label={'минимальная сумма для выживания'}
                         placeholder={20000}
                         addmore={true}
                         cycle={true}
                     />
+                    <Param2/>
+                </div>
+                <div className="chart__carditem">
+                    <h2>
+                        <span>Введите </span>
+                        <b>фиксированные ежемесячные расходы</b>
+                    </h2>
+                    <h4>К примеру, кредиты, оплата за квартиру и так далее</h4>
+                    <Param1 
+                        data={[]}
+                        placeholder={20000}
+                        addmore={true}
+                        cycle={true}
+                    />
+                    <Param2/>
+                </div>
+                <div className="chart__carditem">
+                    <h2>
+                        <span>Какой для вас </span>
+                        <b>минимальный бюджет </b>
+                        <span>на карте</span>
+                    </h2>
+                    <h4>т.е. минимальный порог, ниже которого вы уже чувствуете себя некомфортно и нужно подсуетиться по допзаработку</h4>
+                    <Param1 
+                        data={[]}
+                        placeholder={15000}
+                    />
+                    
+                    <Param2/>
+                </div>
+                <div className="chart__carditem">
+                    <h2>
+                        <span>Желаемый для&nbsp;вас </span>
+                        <b>уровень дохода </b>
+                        <span>в&nbsp;ближайшее время</span>
+                    </h2>
+                    <h4>Этот уровень будет отображаться на графике и поможет представить, сколько еще нужно поднажать по заработку</h4>
+                    <Param1 
+                        data={[]}
+                        placeholder={200000}
+                    />
+                    <div className="">Перейти к графику</div>
+                    <Param2/>
                 </div>
             </Slider>
         </div>

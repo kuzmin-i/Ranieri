@@ -3,7 +3,11 @@
     border: 0px;
     text-align: center;
     color: black;
-    font-size: 48px;
-    font-weight: 400;
+    font-size: 68px;
+    font-weight: 500;
     width: 100%
+}
+
+.param1__input::placeholder {
+    color: rgba(0,0,0,.3);
 }

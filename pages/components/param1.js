@@ -4,7 +4,7 @@ const Param1 = ({data, label, placeholder, addmore, cycle}) => {
 
     const addmoreComp = (
         <div className="param1__addmore param1__block">
-                +
+                Добавить еще
         </div>
     )
 
@@ -14,15 +14,12 @@ const Param1 = ({data, label, placeholder, addmore, cycle}) => {
 
     return (
         <div className="param1">
-            <span className="param1__label">{_label}</span>
             <div className="param1__block">
                 <input className="param1__input" type="text" placeholder={_placeholder + ' ₽'}/>
                 {(cycle) ? cycleComp : <></>}
             </div>
             {(addmore) ? addmoreComp : <></>}
-            <div className="param1__comment">
-                Пока берутся усредненные данные. Далее, вы сможете настроить более точные показатели
-            </div>
+            
 
         </div>
     )

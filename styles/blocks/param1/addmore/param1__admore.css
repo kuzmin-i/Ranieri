@@ -1,4 +1,8 @@
 .param1__addmore {
-    font-size: 30px;
-    line-height: .8;
+    font-size: 14px;
+    line-height: auto;
+    background: #988D8D;
+    border: 1px solid rgba(0,0,0,.3);
+    color: white;
+    margin: 15px 0px
 }
