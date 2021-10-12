@@ -1,4 +1,6 @@
 .param1__comment {
+    width: calc(100%);
+    z-index: 500;
     padding: 6px 12px;
     font-size: 12px;
     color: #A9A7A0;

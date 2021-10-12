@@ -1,0 +1,9 @@
+.param1__hr {
+    width: 100%;
+    position: relative;
+    margin-bottom: 12px;
+    height: 1px;
+    left: -0px;
+    background: rgba(96, 96, 92, 0.2);
+    z-index: 500
+}

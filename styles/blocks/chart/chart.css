@@ -5,6 +5,9 @@
 @import './bullets/chart__bullets.css';
 @import './slider/chart__slider.css';
 
+@import './cardheader/chart__cardheader.css';
+@import './cardmaincontent/chart__cardmaincontent.css';
+
 .chart {
     width: 100%;
     height: 290px;

@@ -1,5 +1,5 @@
 .chart__slider {
-    width: calc(100vw - 60px);
+    width: calc(100vw - 50px);
     height: calc(100vh - 20px - 48px - 32px - 40px - 50px);
 
 }

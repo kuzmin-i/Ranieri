@@ -4,12 +4,13 @@ import { lcData } from "../../data/linechart"
 import SwitchToogle from "./switchToogle"
 import { useEffect, useState } from "react"
 import Param1 from "./param1"
-import Param2 from "./param2"
+import Param2 from "./ChartCardFooter"
 
 import Slider from "@farbenmeer/react-spring-slider";
 import PropTypes from 'prop-types';
 
 import Modal from 'react-bootstrap/Modal';
+import ChartCardFooter from "./ChartCardFooter"
 
 
 const BulletComponent = ({ onClick, isActive }) => (
@@ -31,12 +32,21 @@ BulletComponent.propTypes = {
     isActive: PropTypes.bool.isRequired,
 };
 
+
+
 const SliderComponent = () => {
+    const [isActiveFooterBtn, setActiveFooterBtn] = useState(false)
+    const onSlideChange = (index) => {
+        (index === 5) ? setActiveFooterBtn(true) : setActiveFooterBtn(false)
+    }
+
     return (
         <div className="chart__slider">
+            <ChartCardFooter btn={isActiveFooterBtn}/>
             <Slider
                 hasBullets
                 BulletComponent={BulletComponent}
+                onSlideChange={onSlideChange}
             >
                 <div className="chart__carditem">
                     <h2>
@@ -44,36 +54,48 @@ const SliderComponent = () => {
                         <br/><br/>
                         <b>Для настройки графика необходимо пройти всего 5 шагов</b>
                     </h2>
-                    <Param2/>
                 </div>
                 <div className="chart__carditem">
-                    <h2>
-                        <span>Введите </span>
-                        <b>средние ежедневные траты</b>
-                    </h2>
-                    <h4>К примеру, карманные расходы на питание, бензин и жвачку "Орбит" из Пятерочки на углу</h4>
+                    <div className="chart__cardheader">
+                        <h2>
+                            <span>Введите </span>
+                            <b>средние ежедневные траты</b>
+                        </h2>
+                        <h4>К примеру, карманные расходы на питание, бензин и жвачку "Орбит" из Пятерочки на углу</h4>
+                    </div>
+                    
+                    <div className="chart__cardmaincontent">
                     <Param1 
-                        data={[]}
-                        label={'Введите ежемесячный доход / зарплату'}
-                        placeholder={20000}
-                        addmore={true}
-                        cycle={true}
+                        placeholder={1500}
                     />
-                    <Param2/>
+                    </div>
+                    
                 </div>
                 <div className="chart__carditem">
-                    <h2>
-                        <span>Какие у вас </span>
-                        <b>фиксированные доходы в&nbsp;месяц</b>
-                    </h2>
-                    <h4>К примеру, зарплата на основной работе</h4>
-                    <Param1 
-                        data={[]}
-                        placeholder={20000}
-                        addmore={true}
-                        cycle={true}
-                    />
-                    <Param2/>
+                    <div className="chart__cardheader">
+                        <h2>
+                            <span>Какие у вас </span>
+                            <b>фиксированные доходы в&nbsp;месяц</b>
+                        </h2>
+                        <h4>К примеру, зарплата на основной работе</h4>
+                    </div>
+                    <div className="chart__cardmaincontent">
+                        <Param1 
+                            data={[
+                                {
+                                    sum: 40000,
+                                    date: 5
+                                },
+                                {
+                                    sum: 40000,
+                                    date: 20
+                                }
+                            ]}
+                            placeholder={20000}
+                            addmore={true}
+                            cycle={true}
+                        />
+                    </div>
                 </div>
                 <div className="chart__carditem">
                     <h2>
@@ -82,12 +104,32 @@ const SliderComponent = () => {
                     </h2>
                     <h4>К примеру, кредиты, оплата за квартиру и так далее</h4>
                     <Param1 
-                        data={[]}
+                        data={[
+                            {
+                                sum: 40000,
+                                date: 5
+                            },
+                            {
+                                sum: 40000,
+                                date: 20
+                            },
+                            {
+                                sum: 40000,
+                                date: 20
+                            },
+                            {
+                                sum: 40000,
+                                date: 20
+                            },
+                            {
+                                sum: 40000,
+                                date: 20
+                            },
+                        ]}
                         placeholder={20000}
                         addmore={true}
                         cycle={true}
                     />
-                    <Param2/>
                 </div>
                 <div className="chart__carditem">
                     <h2>
@@ -100,8 +142,6 @@ const SliderComponent = () => {
                         data={[]}
                         placeholder={15000}
                     />
-                    
-                    <Param2/>
                 </div>
                 <div className="chart__carditem">
                     <h2>
@@ -114,8 +154,6 @@ const SliderComponent = () => {
                         data={[]}
                         placeholder={200000}
                     />
-                    <div className="">Перейти к графику</div>
-                    <Param2/>
                 </div>
             </Slider>
         </div>

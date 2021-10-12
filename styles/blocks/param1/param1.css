@@ -3,4 +3,15 @@
 @import './comment/param1__comment.css';
 @import './input/param1__input.css';
 @import './datebtn/param1__datebtn.css';
-@import './addmore/param1__admore.css';
+@import './addmore/param1__addmore.css';
+@import './line/param1__line.css';
+@import './hr/param1__hr.css';
+@import './btn/param1__btn.css';
+@import './footer/param1__footer.css';
+
+.param1 {
+    height: 100%;
+    overflow-y: scroll;
+    touch-action: pinch-zoom;
+}
+

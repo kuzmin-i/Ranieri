@@ -1,0 +1,7 @@
+.param1__footer {
+    position: absolute;
+    bottom: 70px;
+    width: calc(100% - 32px);
+    z-index: 500;
+    background: white
+}

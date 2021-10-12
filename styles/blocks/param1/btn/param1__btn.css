@@ -1,0 +1,20 @@
+.param1__btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 64px;
+    background: #7141FB;
+    color: white;
+    border-radius: 12px;
+    font-size: 18px;
+    margin-bottom: 12px;
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 1s;
+}
+
+.param1__btn.hidden {
+    display: none;
+    opacity: 0;
+}
