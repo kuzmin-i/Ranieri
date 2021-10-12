@@ -5,7 +5,8 @@
     color: black;
     font-size: 68px;
     font-weight: 500;
-    width: 100%
+    width: 100%;
+    -webkit-appearance: none;
 }
 
 .param1__input::placeholder {
