@@ -5,6 +5,8 @@
     color: black;
     font-size: 68px;
     font-weight: 500;
+    height: 83px;
+    padding: 0px;
     width: 100%;
     -webkit-appearance: none;
 }
