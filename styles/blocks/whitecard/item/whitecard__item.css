@@ -1,0 +1,33 @@
+.whitecard__item {
+    height: 60px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 500;
+}
+
+.whitecard__item div {
+    display: flex;
+    align-items: center;
+}
+
+.whitecard__item div.isIcon {
+    width: 32px;
+    height: 32px;
+    margin-right: 8px;
+    display: block;
+}
+
+.whitecard__item::after {
+    content: '';
+    background: url('/d/item-arrow.svg');
+    width: 7px;
+    height: 12px;
+    opacity: .5;
+}
+
+.whitecard__item:not(:nth-child(1)) {
+    border-top: 1px solid rgba(96, 96, 92, 0.2);
+}

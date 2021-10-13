@@ -137,7 +137,7 @@ const SliderComponent = () => {
                     <h2>
                         <span>Какой для вас </span>
                         <b>минимальный бюджет </b>
-                        <span>на карте</span>
+                        <span>на&nbsp;карте</span>
                     </h2>
                     <h4>т.е. минимальный порог, ниже которого вы уже чувствуете себя некомфортно и нужно подсуетиться по допзаработку</h4>
                     <Param1 
@@ -162,10 +162,24 @@ const SliderComponent = () => {
 	);
 }
 
+const Tile = ({children}) => (<div className="whitecard">{children}</div>)
+Tile.Header = ({children}) => (<div className="whitecard__header">{children}</div>)
+Tile.Title = ({children}) => (<span>{children}</span>)
+Tile.Icon = ({iconPath}) => (<div style = {(iconPath) ? {backgroundImage: `url('${iconPath}')`} : {}} className="whitecard__cornerIcon"/>)
+Tile.Menu = ({children}) => (<div className="whitecard__menu">{children}</div>)
+Tile.Item = ({children, iconPath}) => (
+    <div className="whitecard__item">
+        <div>
+            {(iconPath) ? <div style={{backgroundImage: `url('${iconPath}')`}} className="isIcon"/> : <></>}
+            {children}
+        </div>
+    </div>
+)
+
 const AnalyticsScreen = () => {
     const [introStatus, setIntro] = useState(false)
 
-    useEffect(
+    /*useEffect(
         () => {
           let showIntroModal = setTimeout(() => setIntro(true), 500);
           
@@ -175,6 +189,7 @@ const AnalyticsScreen = () => {
         },
         []
       );
+      */
 
     let dailyAv = 1500
     let pointProfit = 40000
@@ -263,12 +278,13 @@ const AnalyticsScreen = () => {
     }
 
 
-    
-
-
     return (
         <>
-        <div className="whitecard">
+        <Tile>
+            <Tile.Header>
+                <Tile.Title>Финансовая активность</Tile.Title>
+                <Tile.Icon iconPath="/d/fullscreen.svg"/>
+            </Tile.Header>
             <SwitchToogle tabs={['За текущий месяц', 'За период']}/>
             <div className="chart">
                 <div className="chart__line">
@@ -276,11 +292,21 @@ const AnalyticsScreen = () => {
                     <LineChart data={ chartData }/>
                 </div>
             </div>
-        </div>
+        </Tile>
         
-        <div className="chart__cardblock">
-            <SliderComponent/>
-        </div>
+        <Tile>
+            <Tile.Header>
+                <Tile.Title>Вводные данные</Tile.Title>
+            </Tile.Header>
+            <Tile.Menu>
+                <Tile.Item iconPath="/d/main_settings.svg">
+                    Основные настройки
+                </Tile.Item>
+                <Tile.Item iconPath="/d/point-settings.svg">
+                    Разовые траты / доходы
+                </Tile.Item>
+            </Tile.Menu>
+        </Tile>
 
         <Modal
             show={introStatus}

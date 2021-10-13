@@ -1,3 +1,8 @@
+@import './header/whitecard__header.css';
+@import './item/whitecard__item.css';
+@import './menu/whitecard__menu.css';
+@import './cornerIcon/whitecard__cornerIcon.css';
+
 .whitecard {
     margin: 10px;
     background: white;
