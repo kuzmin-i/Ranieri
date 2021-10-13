@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const SwitchToogle = ({tabs, screen}) => {
+const SwitchToogle = ({tabs, screen, top}) => {
     const [checked, setChecked] = useState(0);
 
     let _tabs = []
@@ -23,7 +23,7 @@ const SwitchToogle = ({tabs, screen}) => {
   
     return (
         
-            <div className="switcher">
+            <div className="switcher" style={(top) ? {marginTop: top} : {}}>
                 { states }
             </div>
          

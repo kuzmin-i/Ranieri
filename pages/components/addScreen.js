@@ -109,7 +109,7 @@ const AddScreen = () => {
             <input ref={inputDescr} placeholder="Комментарий" className="price descr borders"/>
 
             <div className="switchToogle">
-              <SwitchToogle tabs={['Перевести', 'Разделить']}/>
+              <SwitchToogle top={48} tabs={['Перевести', 'Разделить']}/>
             </div>
 
             <div className="users">

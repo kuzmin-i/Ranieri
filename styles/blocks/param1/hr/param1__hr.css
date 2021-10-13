@@ -6,3 +6,7 @@
     background: rgba(96, 96, 92, 0.8);
     z-index: 500
 }
+
+.param1__hr.hidden {
+    display: none;
+}

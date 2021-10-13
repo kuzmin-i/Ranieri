@@ -4,13 +4,14 @@ import { lcData } from "../../data/linechart"
 import SwitchToogle from "./switchToogle"
 import { useEffect, useState } from "react"
 import Param1 from "./param1"
-import Param2 from "./ChartCardFooter"
 
 import Slider from "@farbenmeer/react-spring-slider";
 import PropTypes from 'prop-types';
 
 import Modal from 'react-bootstrap/Modal';
 import ChartCardFooter from "./ChartCardFooter"
+
+import styled from 'styled-components';
 
 
 const BulletComponent = ({ onClick, isActive }) => (
@@ -32,31 +33,56 @@ BulletComponent.propTypes = {
     isActive: PropTypes.bool.isRequired,
 };
 
+const ChartCardClose = styled.div`
+    position: absolute;
+    top: -17px;
+    right: 15px;
+    font-size: 1remж
+    font-weight: 500;
+    color: #7141FB
+`
 
 
-const SliderComponent = () => {
+const SliderComponent = ({mainSettings, onboardStatus}) => {
+    const [MainSettingsStatus, setMainSettings] = mainSettings
     const [isActiveFooterBtn, setActiveFooterBtn] = useState(false)
     const [isActiveMessage, setActiveMessage] = useState(false)
     const onSlideChange = (index) => {
-        (index === 5) ? setActiveFooterBtn(true) : setActiveFooterBtn(false);
-        (index === 1) ? setActiveMessage(true) : setActiveMessage(false)
+        const startIndex = (onboardStatus) ? 0 : -1
+        const newIndex = (index) ? startIndex+index : 0;
+
+        (newIndex === 5) ? setActiveFooterBtn(true) : setActiveFooterBtn(false);
+        (newIndex === 1) ? setActiveMessage(true) : setActiveMessage(false)
     }
+
+    let onBoardSlide 
+    
+    
+
+    if(onboardStatus) onBoardSlide = (
+        <div className="chart__carditem">
+            <h2>
+                <span>В графике пока нет данных о вашей финансовой активности</span>
+                <br/><br/>
+                <b>Для настройки графика необходимо пройти всего 5 шагов <img src="/d/onboard_arrow.svg"/></b>
+            </h2>
+        </div>
+    )
 
     return (
         <div className="chart__slider">
-            <ChartCardFooter btn={isActiveFooterBtn} message={isActiveMessage}/>
+            {(!onboardStatus) ? <ChartCardClose onClick={() => setMainSettings(false)}>Готово</ChartCardClose> : <></>}
+            <ChartCardFooter 
+                btn={isActiveFooterBtn} 
+                message={isActiveMessage}
+                showSettings={setMainSettings}
+            />
             <Slider
                 hasBullets
                 BulletComponent={BulletComponent}
                 onSlideChange={onSlideChange}
             >
-                <div className="chart__carditem">
-                    <h2>
-                        <span>В графике пока нет данных о вашей финансовой активности</span>
-                        <br/><br/>
-                        <b>Для настройки графика необходимо пройти всего 5 шагов <img src="/d/onboard_arrow.svg"/></b>
-                    </h2>
-                </div>
+                {onBoardSlide}
                 <div className="chart__carditem">
                     
                     <h2>
@@ -177,11 +203,15 @@ Tile.Item = ({children, iconPath, ...props}) => (
 )
 
 const AnalyticsScreen = () => {
-    const [introStatus, setIntro] = useState(false)
+    const [MainSettingsStatus, setMainSettings] = useState(false)
+    const [onboardWindow, showOnboardWindow] = useState(false)
 
-    /*useEffect(
+    useEffect(
         () => {
-          let showIntroModal = setTimeout(() => setIntro(true), 500);
+          let showIntroModal = setTimeout(() => {
+              setMainSettings(true)
+              showOnboardWindow(true)
+          }, 500);
           
           return () => {
             clearTimeout(showIntroModal);
@@ -189,7 +219,7 @@ const AnalyticsScreen = () => {
         },
         []
       );
-      */
+    
 
     let dailyAv = 1500
     let pointProfit = 40000
@@ -285,7 +315,7 @@ const AnalyticsScreen = () => {
                 <Tile.Title>Финансовая активность</Tile.Title>
                 <Tile.Icon iconPath="/d/fullscreen.svg"/>
             </Tile.Header>
-            <SwitchToogle tabs={['За текущий месяц', 'За период']}/>
+            <SwitchToogle top={24} tabs={['За текущий месяц', 'За период']}/>
             <div className="chart">
                 <div className="chart__line">
                     
@@ -299,7 +329,12 @@ const AnalyticsScreen = () => {
                 <Tile.Title>Вводные данные</Tile.Title>
             </Tile.Header>
             <Tile.Menu>
-                <Tile.Item onClick={() => setIntro(true)} iconPath="/d/main_settings.svg">
+                <Tile.Item 
+                    onClick={() => {
+                        setMainSettings(true)
+                        showOnboardWindow(false)
+                    } }
+                    iconPath="/d/main_settings.svg">
                     Основные настройки
                 </Tile.Item>
                 <Tile.Item iconPath="/d/point-settings.svg">
@@ -309,7 +344,7 @@ const AnalyticsScreen = () => {
         </Tile>
 
         <Modal
-            show={introStatus}
+            show={MainSettingsStatus}
             onHide={() => setIntro(false)}
             dialogClassName="modal-90w"
             aria-labelledby="example-custom-modal-styling-title"
@@ -317,7 +352,10 @@ const AnalyticsScreen = () => {
             <Modal.Header>
             </Modal.Header>
             <Modal.Body>
-                <SliderComponent/>
+                <SliderComponent 
+                    mainSettings={[MainSettingsStatus, setMainSettings]} 
+                    onboardStatus={onboardWindow}
+                />
             </Modal.Body>
         </Modal>
         </>
