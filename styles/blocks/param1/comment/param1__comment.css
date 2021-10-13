@@ -4,9 +4,10 @@
     margin-top: 12px;
     padding: 6px 12px;
     font-size: 12px;
-    color: #A9A7A0;
-    border: 1px solid #D9D7CE;
+    color: #565551;
+    border: 1px solid #686763;
     border-radius: 5px;
+    display: block;
 }
 
 .param1__comment.hidden {

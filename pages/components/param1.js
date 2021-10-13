@@ -1,5 +1,19 @@
+import { useRef } from "react"
+
 const BlockCom = ({sum, date, cycle, placeholder}) => {
     const _placeholder = (placeholder) ? placeholder : '1000'
+    const inputPrice = useRef()
+
+    const priceSumKeypress = (e) => {
+        e.preventDefault()
+        if(e.key === 'Backspace') {
+          let currentVal = inputPrice.current.value.replace(' ₽', '').slice(0, -1)
+          inputPrice.current.value = currentVal + ' ₽'
+        } else if(isFinite(e.key)) {
+          let currentVal = inputPrice.current.value.replace(' ₽', '')
+          inputPrice.current.value = currentVal + e.key + ' ₽'
+        }
+      }
 
 
     const cycleComp = (cycle) ? (
@@ -8,7 +22,7 @@ const BlockCom = ({sum, date, cycle, placeholder}) => {
 
     return (
         <div className="param1__block">
-            <input className="param1__input" type="text" placeholder={_placeholder + ' ₽'} defaultValue={(sum)?sum+' ₽':''}/>
+            <input ref={inputPrice} onKeyDown={priceSumKeypress} className="param1__input" type="text" placeholder={_placeholder + ' ₽'} defaultValue={(sum)?sum+' ₽':''}/>
             {(cycle) ? cycleComp : <></>}
         </div>
     )}

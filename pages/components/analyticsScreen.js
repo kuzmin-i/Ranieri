@@ -58,13 +58,13 @@ const SliderComponent = () => {
                     </h2>
                 </div>
                 <div className="chart__carditem">
-                    <div className="chart__cardheader">
-                        <h2>
-                            <span>Введите </span>
-                            <b>средние ежедневные траты</b>
-                        </h2>
-                        <h4>К примеру, карманные расходы на питание, бензин и жвачку "Орбит" из Пятерочки на углу</h4>
-                    </div>
+                    
+                    <h2>
+                        <span>Введите </span>
+                        <b>средние ежедневные траты</b>
+                    </h2>
+                    <h4>К примеру, карманные расходы на питание, бензин и жвачку "Орбит" из Пятерочки на углу</h4>
+                
                     
                     <div className="chart__cardmaincontent">
                     <Param1 
@@ -74,13 +74,13 @@ const SliderComponent = () => {
                     
                 </div>
                 <div className="chart__carditem">
-                    <div className="chart__cardheader">
-                        <h2>
-                            <span>Какие у вас </span>
-                            <b>фиксированные доходы в&nbsp;месяц</b>
-                        </h2>
-                        <h4>К примеру, зарплата на основной работе</h4>
-                    </div>
+                    
+                    <h2>
+                        <span>Какие у вас </span>
+                        <b>фиксированные доходы в&nbsp;месяц</b>
+                    </h2>
+                    <h4>К примеру, зарплата на основной работе</h4>
+                
                     <div className="chart__cardmaincontent">
                         <Param1 
                             data={[

@@ -8,6 +8,7 @@
 @import './hr/param1__hr.css';
 @import './btn/param1__btn.css';
 @import './footer/param1__footer.css';
+@import './gradient/param1__gradient.css';
 
 .param1 {
     height: 100%;
