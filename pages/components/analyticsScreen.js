@@ -167,8 +167,8 @@ Tile.Header = ({children}) => (<div className="whitecard__header">{children}</di
 Tile.Title = ({children}) => (<span>{children}</span>)
 Tile.Icon = ({iconPath}) => (<div style = {(iconPath) ? {backgroundImage: `url('${iconPath}')`} : {}} className="whitecard__cornerIcon"/>)
 Tile.Menu = ({children}) => (<div className="whitecard__menu">{children}</div>)
-Tile.Item = ({children, iconPath}) => (
-    <div className="whitecard__item">
+Tile.Item = ({children, iconPath, ...props}) => (
+    <div className="whitecard__item" {...props}>
         <div>
             {(iconPath) ? <div style={{backgroundImage: `url('${iconPath}')`}} className="isIcon"/> : <></>}
             {children}
@@ -299,7 +299,7 @@ const AnalyticsScreen = () => {
                 <Tile.Title>Вводные данные</Tile.Title>
             </Tile.Header>
             <Tile.Menu>
-                <Tile.Item iconPath="/d/main_settings.svg">
+                <Tile.Item onClick={() => setIntro(true)} iconPath="/d/main_settings.svg">
                     Основные настройки
                 </Tile.Item>
                 <Tile.Item iconPath="/d/point-settings.svg">
