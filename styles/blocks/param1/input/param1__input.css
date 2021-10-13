@@ -14,3 +14,15 @@
 .param1__input::placeholder {
     color: rgba(0,0,0,.3);
 }
+
+.param1__input:focus {
+    border: 0px solid black;
+    outline-width: 0;
+    outline: none !important
+  }
+  
+  .param1__input:focus-visible {
+    border: 0px solid black;
+    outline-width: 0;
+    outline: none !important
+  }
