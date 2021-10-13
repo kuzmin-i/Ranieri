@@ -1,9 +1,8 @@
 .param1__hr {
-    width: 100%;
+    width: calc(100% + 32px);
     position: relative;
-    margin-bottom: 12px;
     height: 1px;
-    left: -0px;
-    background: rgba(96, 96, 92, 0.2);
+    left: -16px;
+    background: rgba(96, 96, 92, 0.8);
     z-index: 500
 }

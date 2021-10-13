@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components'
 
 
-const Comment = ({children}) => (
-        <div className="param1__comment">
+const Comment = ({children, hidden}) => (
+        <div className={`param1__comment ${(hidden) ? "hidden" : ""}`}>
             {children}
         </div>
 )
@@ -15,14 +15,12 @@ LocalFooter.Comment = Comment
 LocalFooter.Btn = Btn
 LocalFooter.HR = HR
 
-const ChartCardFooter = ({btn}) => {
-    console.log(`is ${btn}`)
-
+const ChartCardFooter = ({btn, message}) => {
     return (
         <LocalFooter>
             <LocalFooter.HR/>
             <LocalFooter.Btn hidden={!btn}>Перейти к графику</LocalFooter.Btn>
-            <LocalFooter.Comment>Пока берутся усредненные данные. Далее, вы сможете настроить более точные показатели</LocalFooter.Comment>
+            <LocalFooter.Comment hidden={!message}>Пока берутся усредненные данные. Далее, вы сможете настроить более точные показатели</LocalFooter.Comment>
         </LocalFooter>
     )
 }

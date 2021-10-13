@@ -36,13 +36,15 @@ BulletComponent.propTypes = {
 
 const SliderComponent = () => {
     const [isActiveFooterBtn, setActiveFooterBtn] = useState(false)
+    const [isActiveMessage, setActiveMessage] = useState(false)
     const onSlideChange = (index) => {
-        (index === 5) ? setActiveFooterBtn(true) : setActiveFooterBtn(false)
+        (index === 5) ? setActiveFooterBtn(true) : setActiveFooterBtn(false);
+        (index === 1) ? setActiveMessage(true) : setActiveMessage(false)
     }
 
     return (
         <div className="chart__slider">
-            <ChartCardFooter btn={isActiveFooterBtn}/>
+            <ChartCardFooter btn={isActiveFooterBtn} message={isActiveMessage}/>
             <Slider
                 hasBullets
                 BulletComponent={BulletComponent}

@@ -8,13 +8,15 @@
     color: white;
     border-radius: 12px;
     font-size: 18px;
-    margin-bottom: 12px;
-    visibility: visible;
+    margin-top: 12px;
     opacity: 1;
-    transition: opacity 1s;
+    position: relative;
+    bottom: 0px;
+    transition: bottom 1s;
 }
 
 .param1__btn.hidden {
     display: none;
+    bottom: -64px;
     opacity: 0;
 }

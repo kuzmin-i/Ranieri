@@ -1,9 +1,14 @@
 .param1__comment {
     width: calc(100%);
     z-index: 500;
+    margin-top: 12px;
     padding: 6px 12px;
     font-size: 12px;
     color: #A9A7A0;
     border: 1px solid #D9D7CE;
     border-radius: 5px;
+}
+
+.param1__comment.hidden {
+    display: none;
 }
