@@ -8,7 +8,7 @@
     text-align: left;
     font-size: 18px;
     line-height: 1.2;
-    height: calc(100% - 102px);
+    height: calc(100% - 40px);
     touch-action: pinch-zoom;
 }
 
